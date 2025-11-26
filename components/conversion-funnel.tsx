@@ -10,26 +10,26 @@ export function ConversionFunnel() {
   ]
 
   return (
-    <Card className="border border-border rounded-xl hover:border-accent/30 hover:shadow-lg transition-all duration-300">
-      <CardHeader className="pb-6">
-        <CardTitle className="text-lg font-semibold">Conversion Funnel</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">Sales pipeline conversion rates</CardDescription>
+    <Card className="border border-border rounded hover:border-accent/30 transition-all duration-200">
+      <CardHeader className="pb-3 p-3">
+        <CardTitle className="text-xs font-semibold">Conversion Funnel</CardTitle>
+        <CardDescription className="text-[10px] text-muted-foreground">Sales pipeline conversion</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="p-3 pt-0">
+        <div className="space-y-2">
           {steps.map((step, idx) => (
             <div key={step.name}>
-              <div className="flex justify-between items-center mb-2">
-                <p className="text-sm font-medium text-foreground">{step.name}</p>
-                <p className="text-sm font-semibold text-muted-foreground">{step.count}</p>
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-xs font-medium text-foreground">{step.name}</p>
+                <p className="text-xs font-semibold text-muted-foreground">{step.count}</p>
               </div>
               <div
-                className="bg-accent/10 rounded-lg h-8 overflow-hidden flex items-center px-3 transition-all duration-500"
+                className="bg-accent/10 rounded h-5 overflow-hidden flex items-center px-2 transition-all duration-300"
                 style={{ width: `${step.percent}%` }}
               >
-                <p className="text-xs font-semibold text-accent">{step.percent}%</p>
+                <p className="text-[10px] font-semibold text-accent">{step.percent}%</p>
               </div>
-              {idx < steps.length - 1 && <ChevronDown size={16} className="mx-auto my-3 text-border" />}
+              {idx < steps.length - 1 && <ChevronDown size={12} className="mx-auto my-1.5 text-border" />}
             </div>
           ))}
         </div>

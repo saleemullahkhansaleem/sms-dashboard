@@ -9,21 +9,21 @@ export function KPICards() {
   ]
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6">
       {kpis.map((kpi) => (
         <div
           key={kpi.label}
-          className="bg-card border border-border rounded-xl p-6 hover:border-accent/30 hover:shadow-lg transition-all duration-300 group"
+          className="bg-card border border-border rounded p-3 hover:border-accent/30 transition-all duration-200 group"
         >
-          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-6">{kpi.label}</p>
-          <div className="space-y-4">
-            <p className="text-4xl font-light text-foreground">{kpi.value}</p>
+          <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-2">{kpi.label}</p>
+          <div className="space-y-1.5">
+            <p className="text-2xl font-bold text-foreground">{kpi.value}</p>
             <div
-              className={`flex items-center gap-2 text-xs font-medium ${
+              className={`flex items-center gap-1 text-[10px] font-medium ${
                 kpi.positive ? "text-accent" : "text-destructive"
               }`}
             >
-              {kpi.positive ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
+              {kpi.positive ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
               <span>{kpi.trend}</span>
             </div>
           </div>

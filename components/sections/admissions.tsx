@@ -20,13 +20,14 @@ const admissionData = [
 
 export function AdmissionsSection() {
   return (
-    <section className="space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-2xl font-semibold text-foreground">Admissions</h2>
+    <section className="space-y-3">
+      <div>
+        <h2 className="text-lg font-bold text-foreground">Admissions</h2>
+        <p className="text-xs text-muted-foreground">Student admission tracking</p>
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-2">
         {[
           {
             icon: UserPlus,
@@ -63,16 +64,16 @@ export function AdmissionsSection() {
         ].map((item, i) => (
           <div
             key={i}
-            className={`${item.color} border border-border/50 rounded-lg p-6 hover:border-border transition-all`}
+            className={`${item.color} border border-border/50 rounded p-3 hover:border-border transition-all`}
           >
-            <div className="flex items-start justify-between mb-3">
+            <div className="flex items-start justify-between mb-2">
               <div>
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">{item.label}</p>
-                <p className="text-3xl font-light text-foreground">{item.value}</p>
-                <p className="text-xs text-muted-foreground mt-2">{item.subtext}</p>
+                <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">{item.label}</p>
+                <p className="text-xl font-bold text-foreground">{item.value}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">{item.subtext}</p>
               </div>
               <div className={`${item.text} opacity-60`}>
-                <item.icon size={20} />
+                <item.icon size={14} />
               </div>
             </div>
           </div>
@@ -80,9 +81,9 @@ export function AdmissionsSection() {
       </div>
 
       {/* Chart */}
-      <div className="bg-card border border-border rounded-xl p-6">
-        <h3 className="text-sm font-semibold text-foreground mb-6">Monthly Admission Trend (Last 12 Months)</h3>
-        <ResponsiveContainer width="100%" height={350}>
+      <div className="bg-card border border-border rounded p-3">
+        <h3 className="text-xs font-semibold text-foreground mb-3">Monthly Admission Trend (Last 12 Months)</h3>
+        <ResponsiveContainer width="100%" height={250}>
           <AreaChart data={admissionData}>
             <defs>
               <linearGradient id="admissionGrad" x1="0" y1="0" x2="0" y2="1">

@@ -14,13 +14,13 @@ const data = [
 
 export function PerformanceChart() {
   return (
-    <Card className="border border-border rounded-xl hover:border-accent/30 hover:shadow-lg transition-all duration-300">
-      <CardHeader className="pb-6">
-        <CardTitle className="text-lg font-semibold">Revenue Trend</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">Monthly revenue vs operating costs</CardDescription>
+    <Card className="border border-border rounded hover:border-accent/30 transition-all duration-200">
+      <CardHeader className="pb-3 p-3">
+        <CardTitle className="text-xs font-semibold">Revenue Trend</CardTitle>
+        <CardDescription className="text-[10px] text-muted-foreground">Monthly revenue vs costs</CardDescription>
       </CardHeader>
-      <CardContent>
-        <ResponsiveContainer width="100%" height={280}>
+      <CardContent className="p-3 pt-0">
+        <ResponsiveContainer width="100%" height={200}>
           <AreaChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">

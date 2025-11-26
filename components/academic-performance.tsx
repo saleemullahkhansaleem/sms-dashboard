@@ -12,13 +12,13 @@ const data = [
 
 export function AcademicPerformance() {
   return (
-    <Card className="border border-border rounded-xl hover:border-accent/30 hover:shadow-lg transition-all duration-300">
-      <CardHeader className="pb-6">
-        <CardTitle className="text-lg font-semibold">Performance Metrics</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">Quarterly trend analysis</CardDescription>
+    <Card className="border border-border rounded hover:border-accent/30 transition-all duration-200">
+      <CardHeader className="pb-3 p-3">
+        <CardTitle className="text-xs font-semibold">Performance Metrics</CardTitle>
+        <CardDescription className="text-[10px] text-muted-foreground">Quarterly trend analysis</CardDescription>
       </CardHeader>
-      <CardContent>
-        <ResponsiveContainer width="100%" height={200}>
+      <CardContent className="p-3 pt-0">
+        <ResponsiveContainer width="100%" height={150}>
           <LineChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
             <XAxis dataKey="quarter" stroke="var(--color-muted-foreground)" style={{ fontSize: "12px" }} />

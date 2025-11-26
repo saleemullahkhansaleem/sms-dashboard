@@ -4,23 +4,23 @@ import { Building2, Users, DollarSign, MoreHorizontal, TrendingUp, TrendingDown 
 
 export function MainDashboardSection() {
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-        <div className="space-y-1">
-          <h2 className="text-3xl font-bold text-foreground tracking-tight">All Schools Overview</h2>
-          <p className="text-sm text-muted-foreground">Comprehensive view across all campuses</p>
+    <div className="space-y-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h2 className="text-lg font-bold text-foreground">All Schools Overview</h2>
+          <p className="text-xs text-muted-foreground">Comprehensive view across all campuses</p>
         </div>
-        <div className="flex items-center gap-2">
-          <button className="px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-sm hover:shadow-md">
+        <div className="flex items-center gap-1.5">
+          <button className="px-3 py-1.5 text-xs font-medium bg-primary text-primary-foreground rounded hover:bg-primary/90 transition-all duration-200">
             Export Report
           </button>
-          <button className="p-2 hover:bg-secondary/70 rounded-lg transition-all duration-200">
-            <MoreHorizontal className="w-5 h-5 text-muted-foreground" />
+          <button className="p-1.5 hover:bg-secondary/70 rounded transition-all duration-200">
+            <MoreHorizontal className="w-4 h-4 text-muted-foreground" />
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
         {[
           {
             icon: Building2,
@@ -73,44 +73,41 @@ export function MainDashboardSection() {
         ].map((item, i) => (
           <div
             key={i}
-            className={`relative bg-linear-to-br ${item.color} bg-card backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-border hover:-translate-y-1 shadow-sm hover:shadow-xl ${item.borderGlow} transition-all duration-300 group cursor-pointer overflow-hidden`}
+            className={`relative bg-linear-to-br ${item.color} bg-card border border-border/50 rounded p-3 hover:border-border transition-all duration-200 group cursor-pointer`}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative z-10">
-              <div className="flex items-start justify-between mb-5">
-                <div
-                  className={`${item.accent} p-3 rounded-xl ${item.bgAccent} group-hover:scale-110 transition-all duration-300 shadow-sm`}
-                >
-                  <item.icon size={24} strokeWidth={2} />
-                </div>
-                <div className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${item.isPositive
-                  ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
-                  : 'bg-red-500/10 text-red-600 dark:text-red-400'
-                  }`}>
-                  {item.isPositive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
-                  <span>{item.trend}</span>
-                </div>
+            <div className="flex items-start justify-between mb-2">
+              <div
+                className={`${item.accent} p-1.5 rounded ${item.bgAccent} transition-all duration-200`}
+              >
+                <item.icon size={16} strokeWidth={2} />
               </div>
-              <div className="space-y-1">
-                <p className="text-sm font-medium text-muted-foreground">{item.label}</p>
-                <p className="text-3xl font-bold text-foreground tracking-tight">{item.value}</p>
-                <p className="text-xs text-muted-foreground/80">{item.subtext}</p>
+              <div className={`flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold ${item.isPositive
+                ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+                : 'bg-red-500/10 text-red-600 dark:text-red-400'
+                }`}>
+                {item.isPositive ? <TrendingUp size={8} /> : <TrendingDown size={8} />}
+                <span>{item.trend}</span>
               </div>
+            </div>
+            <div className="space-y-0.5">
+              <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide">{item.label}</p>
+              <p className="text-xl font-bold text-foreground">{item.value}</p>
+              <p className="text-[10px] text-muted-foreground/80">{item.subtext}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Campus Comparison Table */}
-      <div className="mt-8 bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-        <div className="p-6 border-b border-border/30 bg-linear-to-r from-muted/30 to-transparent">
+      <div className="mt-3 bg-card border border-border/50 rounded overflow-hidden">
+        <div className="p-3 border-b border-border/30">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-xl font-bold text-foreground">Campus Performance Comparison</h3>
-              <p className="text-sm text-muted-foreground mt-1">Key metrics across all locations</p>
+              <h3 className="text-sm font-bold text-foreground">Campus Performance</h3>
+              <p className="text-xs text-muted-foreground">Key metrics across locations</p>
             </div>
-            <button className="px-4 py-2 text-sm font-medium border border-border rounded-lg hover:bg-secondary/50 transition-colors duration-200">
-              View Details
+            <button className="px-2 py-1 text-xs font-medium border border-border rounded hover:bg-secondary/50 transition-colors duration-200">
+              Details
             </button>
           </div>
         </div>
@@ -118,22 +115,22 @@ export function MainDashboardSection() {
           <table className="w-full">
             <thead>
               <tr className="bg-muted/30">
-                <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <th className="px-3 py-2 text-left text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                   Campus
                 </th>
-                <th className="px-6 py-4 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <th className="px-3 py-2 text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                   Revenue
                 </th>
-                <th className="px-6 py-4 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <th className="px-3 py-2 text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                   Expenses
                 </th>
-                <th className="px-6 py-4 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <th className="px-3 py-2 text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                   Profit
                 </th>
-                <th className="px-6 py-4 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <th className="px-3 py-2 text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                   Students
                 </th>
-                <th className="px-6 py-4 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <th className="px-3 py-2 text-center text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">
                   Attendance
                 </th>
               </tr>
@@ -181,46 +178,46 @@ export function MainDashboardSection() {
                   key={i}
                   className="hover:bg-muted/20 transition-colors duration-150 group"
                 >
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-2 h-2 rounded-full ${row.status === 'active'
-                        ? 'bg-emerald-500 shadow-sm shadow-emerald-500/50'
+                  <td className="px-3 py-2 whitespace-nowrap">
+                    <div className="flex items-center gap-1.5">
+                      <div className={`w-1.5 h-1.5 rounded-full ${row.status === 'active'
+                        ? 'bg-emerald-500'
                         : 'bg-gray-400'
                         }`} />
-                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      <span className="text-xs font-medium text-foreground">
                         {row.campus}
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                  <td className="px-3 py-2 text-center">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                       {row.revenue}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-red-500/10 text-red-600 dark:text-red-400">
+                  <td className="px-3 py-2 text-center">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-red-500/10 text-red-600 dark:text-red-400">
                       {row.expenses}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <span className="font-semibold text-foreground">
+                  <td className="px-3 py-2 text-center">
+                    <span className="text-xs font-medium text-foreground">
                       {row.profit}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <span className="inline-flex items-center justify-center w-12 h-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 font-semibold text-sm">
+                  <td className="px-3 py-2 text-center">
+                    <span className="inline-flex items-center justify-center px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-semibold text-[10px]">
                       {row.students}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="flex-1 max-w-[100px] h-2 bg-muted rounded-full overflow-hidden">
+                  <td className="px-3 py-2 text-center">
+                    <div className="flex items-center justify-center gap-1">
+                      <div className="flex-1 max-w-[60px] h-1.5 bg-muted rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-linear-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500"
+                          className="h-full bg-linear-to-r from-blue-500 to-purple-500 rounded-full"
                           style={{ width: row.attendance }}
                         />
                       </div>
-                      <span className="text-sm font-medium text-muted-foreground min-w-[35px]">
+                      <span className="text-[10px] font-medium text-muted-foreground min-w-[24px]">
                         {row.attendance}
                       </span>
                     </div>

@@ -9,25 +9,25 @@ export function RevenueSegments() {
   ]
 
   return (
-    <Card className="border border-border rounded-xl hover:border-accent/30 hover:shadow-lg transition-all duration-300">
-      <CardHeader className="pb-6">
-        <CardTitle className="text-lg font-semibold">Revenue by Segment</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">Customer tier breakdown</CardDescription>
+    <Card className="border border-border rounded hover:border-accent/30 transition-all duration-200">
+      <CardHeader className="pb-3 p-3">
+        <CardTitle className="text-xs font-semibold">Revenue by Segment</CardTitle>
+        <CardDescription className="text-[10px] text-muted-foreground">Customer tier breakdown</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-3 p-3 pt-0">
         {segments.map((segment) => (
-          <div key={segment.name} className="space-y-2">
+          <div key={segment.name} className="space-y-1">
             <div className="flex justify-between items-center">
-              <p className="text-sm font-medium text-foreground">{segment.name}</p>
-              <p className="text-sm font-semibold text-accent">{segment.value}</p>
+              <p className="text-xs font-medium text-foreground">{segment.name}</p>
+              <p className="text-xs font-semibold text-accent">{segment.value}</p>
             </div>
-            <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+            <div className="w-full bg-muted rounded-full h-1.5 overflow-hidden">
               <div
-                className="bg-accent h-full rounded-full transition-all duration-500"
+                className="bg-accent h-full rounded-full transition-all duration-300"
                 style={{ width: `${segment.percent}%` }}
               />
             </div>
-            <p className="text-xs text-muted-foreground text-right font-medium">{segment.percent}%</p>
+            <p className="text-[10px] text-muted-foreground text-right font-medium">{segment.percent}%</p>
           </div>
         ))}
       </CardContent>

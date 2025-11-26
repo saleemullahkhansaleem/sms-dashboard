@@ -72,23 +72,23 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-4 py-4">
         <DashboardHeader />
 
         {/* Sidebar Navigation Layout */}
-        <div className="mt-8 flex gap-6">
+        <div className="mt-4 flex gap-3">
           {/* Vertical Sidebar Navigation */}
-          <aside className="w-60 shrink-0">
-            <div className="sticky top-8 bg-card border border-border rounded-xl p-2 shadow-lg">
+          <aside className="w-48 shrink-0">
+            <div className="sticky top-4 bg-card border border-border rounded p-1.5 shadow-sm">
               {/* Navigation Header */}
-              <div className="px-3 py-2 mb-1">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+              <div className="px-2 py-1 mb-0.5">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide">
                   Navigation
                 </p>
               </div>
 
               {/* Navigation Items */}
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 {navigationItems.map((item) => {
                   const Icon = item.icon
                   const isActive = activeTab === item.value
@@ -97,27 +97,27 @@ export default function DashboardPage() {
                     <button
                       key={item.value}
                       onClick={() => setActiveTab(item.value)}
-                      className={`w-full flex items-center gap-3 px-3 py-2 rounded-md font-semibold text-sm transition-all duration-300 group relative overflow-hidden ${isActive
-                        ? `bg-linear-to-br ${item.gradient} ${item.activeColor} shadow-md border ${item.border}`
+                      className={`w-full flex items-center gap-2 px-2 py-1.5 rounded text-xs font-medium transition-all duration-200 group relative ${isActive
+                        ? `bg-linear-to-br ${item.gradient} ${item.activeColor} border ${item.border}`
                         : "text-muted-foreground hover:text-foreground hover:bg-secondary/70"
                         }`}
                     >
                       {/* Active Indicator Bar */}
                       {isActive && (
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-current rounded-r-full" />
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-current rounded-r" />
                       )}
 
                       <div
-                        className={`p-2 rounded-lg transition-all duration-300 ${isActive
-                          ? `${item.iconBg} shadow-sm`
+                        className={`p-1 rounded transition-all duration-200 ${isActive
+                          ? `${item.iconBg}`
                           : "bg-secondary/50 group-hover:bg-secondary"
                           }`}
                       >
-                        <Icon size={18} strokeWidth={2.5} />
+                        <Icon size={14} strokeWidth={2.5} />
                       </div>
                       <span className="flex-1 text-left">{item.label}</span>
                       {isActive && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                        <div className="w-1 h-1 rounded-full bg-current" />
                       )}
                     </button>
                   )
@@ -125,22 +125,22 @@ export default function DashboardPage() {
               </div>
 
               {/* Quick Stats in Sidebar */}
-              <div className="mt-4 pt-4 border-t border-border/50">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider px-3 mb-2">
+              <div className="mt-2 pt-2 border-t border-border/50">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide px-2 mb-1">
                   Quick Stats
                 </p>
-                <div className="space-y-1.5">
-                  <div className="px-3 py-2 bg-linear-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 rounded-md hover:shadow-sm transition-shadow">
-                    <p className="text-xs text-muted-foreground font-medium">Total Students</p>
-                    <p className="text-xl font-bold text-foreground">43</p>
+                <div className="space-y-1">
+                  <div className="px-2 py-1.5 bg-linear-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 rounded">
+                    <p className="text-[10px] text-muted-foreground font-medium">Total Students</p>
+                    <p className="text-lg font-bold text-foreground">43</p>
                   </div>
-                  <div className="px-3 py-2 bg-linear-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 rounded-md hover:shadow-sm transition-shadow">
-                    <p className="text-xs text-muted-foreground font-medium">Total Staff</p>
-                    <p className="text-xl font-bold text-foreground">11</p>
+                  <div className="px-2 py-1.5 bg-linear-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 rounded">
+                    <p className="text-[10px] text-muted-foreground font-medium">Total Staff</p>
+                    <p className="text-lg font-bold text-foreground">11</p>
                   </div>
-                  <div className="px-3 py-2 bg-linear-to-br from-emerald-500/10 to-emerald-500/5 border border-emerald-500/20 rounded-md hover:shadow-sm transition-shadow">
-                    <p className="text-xs text-muted-foreground font-medium">Campuses</p>
-                    <p className="text-xl font-bold text-foreground">4</p>
+                  <div className="px-2 py-1.5 bg-linear-to-br from-emerald-500/10 to-emerald-500/5 border border-emerald-500/20 rounded">
+                    <p className="text-[10px] text-muted-foreground font-medium">Campuses</p>
+                    <p className="text-lg font-bold text-foreground">4</p>
                   </div>
                 </div>
               </div>
@@ -157,28 +157,28 @@ export default function DashboardPage() {
               </TabsList>
 
               {/* Overview Tab - Dashboard Summary */}
-              <TabsContent value="overview" className="space-y-8">
+              <TabsContent value="overview" className="space-y-4">
                 <MainDashboardSection />
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
                   <AlertsNotificationsSection />
                   <FeedbackComplaintsSection />
                 </div>
 
                 {/* Quick Actions Bar */}
-                <div className="bg-linear-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-xl p-6">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="bg-linear-to-br from-accent/10 to-accent/5 border border-accent/20 rounded p-3">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <div>
-                      <h3 className="text-lg font-bold text-foreground mb-1">Need Help?</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Access documentation, support, or system settings
+                      <h3 className="text-sm font-bold text-foreground">Need Help?</h3>
+                      <p className="text-xs text-muted-foreground">
+                        Documentation, support, system settings
                       </p>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <button className="px-4 py-2 bg-card hover:bg-secondary/70 border border-border rounded-lg text-sm font-medium transition-all duration-200">
-                        Documentation
+                    <div className="flex items-center gap-2">
+                      <button className="px-3 py-1.5 bg-card hover:bg-secondary/70 border border-border rounded text-xs font-medium transition-all duration-200">
+                        Docs
                       </button>
-                      <button className="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md">
-                        Contact Support
+                      <button className="px-3 py-1.5 bg-accent hover:bg-accent/90 text-accent-foreground rounded text-xs font-medium transition-all duration-200">
+                        Support
                       </button>
                     </div>
                   </div>
@@ -186,27 +186,27 @@ export default function DashboardPage() {
               </TabsContent>
 
               {/* Finance Tab */}
-              <TabsContent value="finance" className="space-y-8">
+              <TabsContent value="finance" className="space-y-4">
                 <FinanceOverviewSection />
               </TabsContent>
 
               {/* People Tab - HR & Attendance */}
-              <TabsContent value="people" className="space-y-8">
-                <div className="grid grid-cols-2 gap-8">
+              <TabsContent value="people" className="space-y-4">
+                <div className="grid grid-cols-2 gap-3">
                   <HRSummarySection />
                   <AttendanceSummarySection />
                 </div>
               </TabsContent>
 
               {/* Academic Tab */}
-              <TabsContent value="academic" className="space-y-8">
+              <TabsContent value="academic" className="space-y-4">
                 <AcademicPerformanceSection />
               </TabsContent>
 
               {/* Admin Tab - Admissions & Calendar */}
-              <TabsContent value="admin" className="space-y-8">
+              <TabsContent value="admin" className="space-y-4">
                 <AdmissionsSection />
-                <div className="grid grid-cols-3 gap-8">
+                <div className="grid grid-cols-3 gap-3">
                   <div className="col-span-2">
                     <CalendarTodoSection />
                   </div>

@@ -11,16 +11,16 @@ export function MetricsGrid() {
   ]
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-6">
       {metrics.map((metric) => (
         <Card
           key={metric.label}
-          className="border border-border rounded-xl hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+          className="border border-border rounded hover:border-accent/30 transition-all duration-200"
         >
-          <CardContent className="pt-5 p-4">
-            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">{metric.label}</p>
-            <p className="text-2xl font-light text-foreground mb-2">{metric.value}</p>
-            <p className="text-xs font-medium text-accent">{metric.change}</p>
+          <CardContent className="pt-3 p-2">
+            <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1.5">{metric.label}</p>
+            <p className="text-lg font-bold text-foreground mb-1">{metric.value}</p>
+            <p className="text-[10px] font-medium text-accent">{metric.change}</p>
           </CardContent>
         </Card>
       ))}

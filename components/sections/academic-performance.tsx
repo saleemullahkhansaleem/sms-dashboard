@@ -14,25 +14,26 @@ const gpaData = [
 
 export function AcademicPerformanceSection() {
   return (
-    <section className="space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-2xl font-semibold text-foreground">Academic Performance</h2>
+    <section className="space-y-3">
+      <div>
+        <h2 className="text-lg font-bold text-foreground">Academic Performance</h2>
+        <p className="text-xs text-muted-foreground">Student performance metrics</p>
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-2">
         {[
           { icon: Award, label: "Average GPA", value: "0", color: "bg-cyan-500/10", text: "text-cyan-500" },
           { icon: BookOpen, label: "Average Marks", value: "0", color: "bg-purple-500/10", text: "text-purple-500" },
         ].map((item, i) => (
-          <div key={i} className={`${item.color} border border-border/50 rounded-lg p-6`}>
+          <div key={i} className={`${item.color} border border-border/50 rounded p-3`}>
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">{item.label}</p>
-                <p className="text-4xl font-light text-foreground">{item.value}</p>
+                <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">{item.label}</p>
+                <p className="text-2xl font-bold text-foreground">{item.value}</p>
               </div>
               <div className={`${item.text} opacity-60`}>
-                <item.icon size={24} />
+                <item.icon size={16} />
               </div>
             </div>
           </div>
@@ -40,9 +41,9 @@ export function AcademicPerformanceSection() {
       </div>
 
       {/* GPA Trend Chart */}
-      <div className="bg-card border border-border rounded-xl p-6">
-        <h3 className="text-sm font-semibold text-foreground mb-6">Exam Result Trends (Last 6 Months)</h3>
-        <ResponsiveContainer width="100%" height={280}>
+      <div className="bg-card border border-border rounded p-3">
+        <h3 className="text-xs font-semibold text-foreground mb-3">Exam Result Trends (Last 6 Months)</h3>
+        <ResponsiveContainer width="100%" height={200}>
           <LineChart data={gpaData}>
             <CartesianGrid strokeDasharray="0" stroke="var(--color-border)" vertical={false} />
             <XAxis dataKey="month" stroke="var(--color-muted-foreground)" style={{ fontSize: "11px" }} />
@@ -66,21 +67,21 @@ export function AcademicPerformanceSection() {
       </div>
 
       {/* Performance Tables */}
-      <div className="grid grid-cols-2 gap-6">
-        <div className="bg-card border border-border rounded-xl p-6 overflow-x-auto">
-          <h3 className="text-sm font-semibold text-foreground mb-4">Top Performing Classes</h3>
-          <table className="w-full text-sm">
+      <div className="grid grid-cols-2 gap-3">
+        <div className="bg-card border border-border rounded p-3 overflow-x-auto">
+          <h3 className="text-xs font-semibold text-foreground mb-2">Top Performing Classes</h3>
+          <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-border">
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Class</th>
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Avg GPA</th>
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Avg Marks</th>
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Students</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Class</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Avg GPA</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Avg Marks</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Students</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-border/50 hover:bg-secondary/30 transition-colors">
-                <td colSpan={4} className="px-3 py-8 text-center text-muted-foreground">
+                <td colSpan={4} className="px-2 py-4 text-center text-muted-foreground text-[10px]">
                   No data available
                 </td>
               </tr>
@@ -88,20 +89,20 @@ export function AcademicPerformanceSection() {
           </table>
         </div>
 
-        <div className="bg-card border border-border rounded-xl p-6 overflow-x-auto">
-          <h3 className="text-sm font-semibold text-foreground mb-4">Low Performing Classes</h3>
-          <table className="w-full text-sm">
+        <div className="bg-card border border-border rounded p-3 overflow-x-auto">
+          <h3 className="text-xs font-semibold text-foreground mb-2">Low Performing Classes</h3>
+          <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-border">
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Class</th>
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Avg GPA</th>
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Avg Marks</th>
-                <th className="px-3 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Students</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Class</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Avg GPA</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Avg Marks</th>
+                <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Students</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-border/50 hover:bg-secondary/30 transition-colors">
-                <td colSpan={4} className="px-3 py-8 text-center text-muted-foreground">
+                <td colSpan={4} className="px-2 py-4 text-center text-muted-foreground text-[10px]">
                   No data available
                 </td>
               </tr>
@@ -111,24 +112,24 @@ export function AcademicPerformanceSection() {
       </div>
 
       {/* Subject-wise Performance */}
-      <div className="bg-card border border-border rounded-xl p-6 overflow-x-auto">
-        <h3 className="text-sm font-semibold text-foreground mb-4">Subject-wise Performance</h3>
-        <table className="w-full text-sm">
+      <div className="bg-card border border-border rounded p-3 overflow-x-auto">
+        <h3 className="text-xs font-semibold text-foreground mb-2">Subject-wise Performance</h3>
+        <table className="w-full text-xs">
           <thead>
             <tr className="border-b border-border">
-              <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Subject</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Average GPA</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">
+              <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Subject</th>
+              <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">Average GPA</th>
+              <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">
                 Average Marks
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">
+              <th className="px-2 py-1.5 text-left text-[10px] font-semibold text-muted-foreground uppercase">
                 Total Students
               </th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-border/50 hover:bg-secondary/30 transition-colors">
-              <td colSpan={4} className="px-4 py-8 text-center text-muted-foreground">
+              <td colSpan={4} className="px-2 py-4 text-center text-muted-foreground text-[10px]">
                 No data available
               </td>
             </tr>
